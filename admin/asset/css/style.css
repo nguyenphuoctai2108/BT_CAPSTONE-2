@@ -1,0 +1,49 @@
+:root, [data-theme=light] {
+  --app-bg: #ffffff;
+  --app-surface: #f8fafc;
+  --app-text: #0f172a;
+  --app-border: #e2e8f0;
+  --app-primary: #2e3e57;
+  --app-hover: #dcdcdc;
+  --app-focus: #dcdcdc;
+  --app-bg-dropdown: rgba(255, 255, 255, 0.5607843137);
+}
+
+[data-theme=dark] {
+  --app-bg: #0f172a;
+  --app-surface: #1e293b;
+  --app-text-sec: #a0a0a0;
+  --app-text: #f1f5f9;
+  --app-border: #334155;
+  --app-primary: #333549;
+  --app-hover: #353457;
+  --app-focus: #353457;
+  --app-bgbtn: #374151;
+  --app-hoverbtn: #4B5563;
+  --app-bg-dropdown: rgba(86, 85, 85, 0.2039215686);
+}
+
+.line-box {
+  position: relative;
+  height: 40px;
+  margin: 0px;
+}
+.line-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 1px;
+  background-color: var(--app-border);
+}
+
+.line-hr {
+  border-top: 0.5px solid var(--app-border);
+}
+
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=style.css.map */
