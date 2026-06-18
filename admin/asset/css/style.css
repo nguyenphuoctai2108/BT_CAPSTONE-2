@@ -6,7 +6,9 @@
   --app-primary: #2e3e57;
   --app-hover: #dcdcdc;
   --app-focus: #dcdcdc;
-  --app-bg-dropdown: rgba(255, 255, 255, 0.5607843137);
+  --app-bg-dropdown: rgba(255, 255, 255, 0.9882352941);
+  --app-table-hover: rgba(145, 145, 145, 0.137254902);
+  --app-bginput:rgba(121, 69, 69, 0.4470588235);
 }
 
 [data-theme=dark] {
@@ -20,7 +22,9 @@
   --app-focus: #353457;
   --app-bgbtn: #374151;
   --app-hoverbtn: #4B5563;
-  --app-bg-dropdown: rgba(86, 85, 85, 0.2039215686);
+  --app-bg-dropdown: rgba(41, 44, 63, 0.9960784314);
+  --app-table-hover: rgba(132, 132, 132, 0.1529411765);
+  --app-bginput:rgba(69, 69, 121, 0.4470588235);
 }
 
 .line-box {

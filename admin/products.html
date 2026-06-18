@@ -55,7 +55,7 @@
                             <path fill="currentColor"
                                 d="m21.067 11.857l-.642-.388zm-8.924-8.924l-.388-.642zM21.25 12A9.25 9.25 0 0 1 12 21.25v1.5c5.937 0 10.75-4.813 10.75-10.75zM12 21.25A9.25 9.25 0 0 1 2.75 12h-1.5c0 5.937 4.813 10.75 10.75 10.75zM2.75 12A9.25 9.25 0 0 1 12 2.75v-1.5C6.063 1.25 1.25 6.063 1.25 12zm12.75 2.25A5.75 5.75 0 0 1 9.75 8.5h-1.5a7.25 7.25 0 0 0 7.25 7.25zm4.925-2.781A5.75 5.75 0 0 1 15.5 14.25v1.5a7.25 7.25 0 0 0 6.21-3.505zM9.75 8.5a5.75 5.75 0 0 1 2.781-4.925l-.776-1.284A7.25 7.25 0 0 0 8.25 8.5zM12 2.75a.38.38 0 0 1-.268-.118a.3.3 0 0 1-.082-.155c-.004-.031-.002-.121.105-.186l.776 1.284c.503-.304.665-.861.606-1.299c-.062-.455-.42-1.026-1.137-1.026zm9.71 9.495c-.066.107-.156.109-.187.105a.3.3 0 0 1-.155-.082a.38.38 0 0 1-.118-.268h1.5c0-.717-.571-1.075-1.026-1.137c-.438-.059-.995.103-1.299.606z" />
                         </svg>
-                        <svg class="icon-sun hidden" xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em"
+                        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em"
                             viewBox="0 0 24 24">
                             <path d="M0 0h24v24H0z" fill="none" />
                             <path fill="currentColor" fill-rule="evenodd"
@@ -73,16 +73,17 @@
             </nav>
         </header>
 
-        <div class="grid xl:grid-cols-2 grid-rows-1 gap-4 p-4 sm:w-full h-full bg-(--app-bg)" id="body-content">
+        <div class="grid xl:grid-cols-7 grid-cols-1 xl:grid-rows-1 gap-4 p-4 xl:w-full h-fit bg-(--app-bg)"
+            id="body-content">
             <div
-                class="flex flex-col items-center p-1 sm:p-4 bg-(--app-surface) border border-(--app-border) rounded-xl pb-3 mb-4 h-full">
-                <div class="w-full flex flex-row justify-between">
+                class="xl:col-span-4 flex flex-col items-center p-1 sm:p-4 bg-(--app-surface) border border-(--app-border) rounded-xl pb-3 mb-4 xl:h-full h-fit">
+                <div class="border-b border-(--app-border) pb-3 w-full flex flex-row justify-around items-center">
                     <div class="w-[60%] relative">
-                        <input
+                        <input id="searchInput"
                             class="w-full rounded-2xl border border-(--app-border) bg-(--app-surface) text-(--app-text) p-0.5 px-3 pb-1.5"
                             type="text" placeholder="Search">
 
-                        <a href=""
+                        <a id="btnSearch"
                             class="absolute top-[calc(50%-12px)] right-[2%] border-s-2 border-s-(--app-border) ps-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                 <path d="M0 0h24v24H0z" fill="none" />
@@ -104,37 +105,155 @@
                             </svg>
                         </button>
 
-                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden bg-(--app-bg-dropdown) border border-transparent shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:inset-s-0 after:w-full before:h-4 before:absolute before:-top-4 before:inset-s-0 before:w-full"
+                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden bg-white dark:bg-gray-700 border border-transparent shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:inset-s-0 after:w-full before:h-4 before:absolute before:-top-4 before:inset-s-0 before:w-full"
                             role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
                             <div class="p-1 space-y-0.5">
                                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover:bg-(--app-hoverbtn) focus:outline-hidden focus:bg-gray-100 dark:focus:bg-(--app-hoverbtn)"
-                                    href="#">
-                                    Newsletter
+                                    id="sortLowHigh" style="cursor: pointer;">
+                                    Low price - high price
                                 </a>
                                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover:bg-(--app-hoverbtn) focus:outline-hidden focus:bg-gray-100 dark:focus:bg-(--app-hoverbtn)"
-                                    href="#">
-                                    Purchases
-                                </a>
-                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover:bg-(--app-hoverbtn) focus:outline-hidden focus:bg-gray-100 dark:focus:bg-(--app-hoverbtn)"
-                                    href="#">
-                                    Downloads
-                                </a>
-                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover:bg-(--app-hoverbtn) focus:outline-hidden focus:bg-gray-100 dark:focus:bg-(--app-hoverbtn)"
-                                    href="#">
-                                    Team Account
+                                    id="sortHighLow" style="cursor: pointer;">
+                                    High price - low price
                                 </a>
                             </div>
                         </div>
                     </div>
                     <!-- End Dropdown -->
                 </div>
-                <div>
+                <div class="w-full mt-3">
+                    <!-- Table -->
+                    <div class="w-full">
+                        <div
+                            class="overflow-x-auto overflow-y-auto max-h-150 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-none [&::-webkit-scrollbar-track]:bg-gray-100 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+                            <table id="tableProducts" class="divide-y divide-gray-200 dark:divide-neutral-700 w-full">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-neutral-400 uppercase">
+                                            Name</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-neutral-400 uppercase">
+                                            price</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-neutral-400 uppercase">
+                                            type</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-end text-xs font-medium text-gray-500 dark:text-neutral-400 uppercase">
+                                            Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody" class="divide-y divide-gray-200 dark:divide-neutral-700">
 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- End Table -->
                 </div>
             </div>
             <div
-                class="flex flex-col items-center sm:p-4 bg-(--app-surface) border border-(--app-border) rounded-xl pb-3 mb-4 h-full">
-                2
+                class="xl:col-span-3 w-full flex flex-col items-center sm:p-4 bg-(--app-surface) border border-(--app-border) rounded-xl pb-1 mb-4 xl:h-full h-fit">
+                <div class="grid grid-cols-1 flex-col w-full p-1">
+
+                    <div class="w-full space-y-3 py-2 grid grid-cols-6 gap-3">
+                        <div class="col-span-1">
+                            <label class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200"
+                                for="idP">ID</label>
+                            <input type="text" id="idP"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-(--app-bginput) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="" disabled="true">
+                        </div>
+                        <div class="col-span-5">
+                            <label for="name"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Name</label>
+                            <input id="name" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Name product" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-name">Vui lòng nhập tên sản phẩm.</p>
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="border-b-2 border-(--app-border) border-dashed grid sm:grid-cols-5 sm:grid-rows-1 grid-cols-1 grid-rows-2 py-2 gap-3 pb-6">
+                        <div class="sm:col-span-3 w-full space-y-3">
+                            <label for="img"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Img</label>
+                            <input id="img" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Image product" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-img">Vui lòng điền link ảnh.</p>
+                        </div>
+                        <div class="sm:col-span-2 w-full space-y-3">
+                            <label for="type"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Type</label>
+                            <input id="type" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Type" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-type">Vui lòng điền loại sản phẩm.</p>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 grid-cols-1 sm:grid-rows-1 grid-rows-2 gap-3 pt-6 py-2">
+                        <div class="w-full space-y-3">
+                            <label for="price"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Price</label>
+                            <input id="price" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Price" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-price">Vui lòng điền giá.</p>
+                        </div>
+                        <div class="w-full space-y-3">
+                            <label for="screen"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Screen</label>
+                            <input id="screen" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Screen" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-screen">Vui lòng điền screen.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="border-b-2 border-(--app-border) border-dashed pb-6 grid sm:grid-cols-2 grid-cols-1 sm:grid-rows-1 grid-rows-2 gap-3 py-2">
+                        <div class="w-full space-y-3">
+                            <label for="backcamera"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Back
+                                Camera</label>
+                            <input id="backcamera" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Back Camera" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-backcamera">Vui lòng điền camera sau.</p>
+                        </div>
+                        <div class="w-full space-y-3">
+                            <label for="frontcamera"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Front
+                                Camera</label>
+                            <input id="frontcamera" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Front Camera" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-frontcamera">Vui lòng camera trước.</p>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <div class="w-full space-y-3">
+                            <label for="description"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Decription</label>
+                            <textarea id="description" rows="3"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Some thing ..." required></textarea>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-description">Hãy viết mô tả.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mt-4 flex justify-end px-2">
+                    <button type="button" style="cursor: pointer;" id="btnReset"
+                        class="me-2 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-yellow-200 dark:bg-yellow-500 border border-transparent text-foreground-inverse hover:bg-yellow-300 focus:outline-hidden focus:bg-yellow-300 disabled:opacity-50 disabled:pointer-events-none">
+                        RESET
+                    </button>
+                    <button type="button" style="cursor: pointer;" id="btnSubmit"
+                        class="ms-2 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-blue-500 border border-blue-400 text-primary-foreground hover:bg-blue-600 focus:outline-hidden focus:bg-bg-blue-600 disabled:opacity-50 disabled:pointer-events-none">
+                        SUBMIT
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -222,11 +341,10 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="../node_modules/preline/preline.js"></script>
-    <script src="./asset/js/chart.js"></script>
-    <script src="./asset/js/dashboard.js"></script>
-    <script src="./asset/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./asset/js/product.js"></script>
+    <script type="module" src="./asset/js/main.js"></script>
 </body>
 <script>
     const head = document.getElementById("header");

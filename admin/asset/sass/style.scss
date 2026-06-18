@@ -6,7 +6,9 @@ $light-border: #e2e8f0;
 $light-primary: #2e3e57;
 $light-hover: #dcdcdc;
 $light-focus:  #dcdcdc;
-$light-bg-dropdown: #ffffff8f;        
+$light-bg-dropdown: #fffffffc;   
+$light-table-hover: #91919123;     
+$light-bg-input: #79454572;
 
 $dark-bg: #0f172a;              
 $dark-surface: #1e293b;         
@@ -18,7 +20,9 @@ $dark-hover: #353457;
 $dark-focus: #353457;
 $dark-bgbtn: #374151;
 $dark-hoverbtn: #4B5563;
-$dark-bg-dropdown: #56555534;
+$dark-bg-dropdown: #292c3ffe;
+$dark-table-hover: #84848427;
+$dark-bg-input: #45457972;
 
 :root, [data-theme="light"] {
   --app-bg: #{$light-bg};
@@ -29,6 +33,8 @@ $dark-bg-dropdown: #56555534;
   --app-hover: #{$light-hover};
   --app-focus: #{$light-focus};
   --app-bg-dropdown: #{$light-bg-dropdown};
+  --app-table-hover: #{$light-table-hover};
+  --app-bginput:#{$light-bg-input};
 }
 
 [data-theme="dark"] {
@@ -43,6 +49,8 @@ $dark-bg-dropdown: #56555534;
   --app-bgbtn: #{$dark-bgbtn};
   --app-hoverbtn: #{$dark-hoverbtn};
   --app-bg-dropdown: #{$dark-bg-dropdown};
+  --app-table-hover: #{$dark-table-hover};
+  --app-bginput:#{$dark-bg-input};
 }
 
 .line-box {

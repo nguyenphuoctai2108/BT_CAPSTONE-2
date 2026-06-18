@@ -1,5 +1,7 @@
+import { BASE_URL } from "../../../config.js"
+
 document.addEventListener("DOMContentLoaded", async () => {
-    const res = await fetch("https://6a30e3c1a7f8866418d6955b.mockapi.io/api/v1/Products", {
+    const res = await fetch(`${BASE_URL}/Products`, {
         method: "GET"
     });
     const rawData = await res.json();
@@ -8,11 +10,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         const brand = item.type;
         acc[brand] = (acc[brand] || 0) + 1;
         return acc;
-    }, {}); 
+    }, {});
 
     const categoriesData = Object.keys(brandCounts);
     const seriesData = Object.values(brandCounts);
-    
+
     const maxValue = Math.max(...seriesData);
 
     const options = {
@@ -41,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             textAnchor: 'start',
             offsetX: 14,
             formatter: function (val) {
-                return `${val}`; 
+                return `${val}`;
             },
             style: {
                 fontSize: '14px',
@@ -51,15 +53,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         },
         xaxis: {
             categories: categoriesData,
-            labels: { show: false }, 
+            labels: { show: false },
             axisBorder: { show: false },
             axisTicks: { show: false },
-            max: maxValue * 1.15 
+            max: maxValue * 1.15
         },
         yaxis: {
             labels: {
                 style: {
-                    colors: Array(categoriesData.length).fill('var(--app-text)'), 
+                    colors: Array(categoriesData.length).fill('var(--app-text)'),
                     fontSize: '16px',
                 },
                 offsetY: 3,
@@ -79,18 +81,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
 
-    const res = await fetch("https://6a30e3c1a7f8866418d6955b.mockapi.io/api/v1/Products", {
+    const res = await fetch(`${BASE_URL}/Products`, {
         method: "GET"
     });
     const rawData = await res.json();
-   
+
     const brandCounts = rawData.reduce((acc, item) => {
         const brand = item.type;
         acc[brand] = (acc[brand] || 0) + 1;
         return acc;
-    }, {}); 
+    }, {});
 
-    
+
     const series = Object.values(brandCounts);
     const labels = Object.keys(brandCounts);
 
@@ -100,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         );
     };
 
-    const initChart = () => { 
+    const initChart = () => {
 
         if (!series.length) return;
 
@@ -155,7 +157,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const chartElement = document.querySelector("#hs-doughnut-chart");
         if (chartElement) {
-            chartElement.innerHTML = ''; 
+            chartElement.innerHTML = '';
             const donutChart = new ApexCharts(chartElement, options);
             donutChart.render();
         }

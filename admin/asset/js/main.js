@@ -1,5 +1,7 @@
+import { BASE_URL } from "../../../config.js";
+
 async function loadTotalSales() {
-    const res = await fetch("https://6a30e3c1a7f8866418d6955b.mockapi.io/api/v1/Products", {
+    const res = await fetch(`${BASE_URL}/Products`, {
         method: "GET"
     });
     const rawData = await res.json();
@@ -11,6 +13,8 @@ async function loadTotalSales() {
     });
 
     const total = document.getElementById("totalSales");
+
+    if(!total) return;
 
     total.innerText = `${totalData.toLocaleString('en-US')} USD`;
 }
@@ -28,12 +32,12 @@ function ToggleDarkmode() {
         const theme = localStorage.getItem('theme') || 'light'; 
 
         if (theme === 'dark') {
-            iconSun.classList.add("hidden");
-            iconMoon.classList.remove("hidden");
-            body.setAttribute('data-theme', 'dark'); 
-        } else {
             iconSun.classList.remove("hidden");
             iconMoon.classList.add("hidden");
+            body.setAttribute('data-theme', 'dark'); 
+        } else {
+            iconSun.classList.add("hidden");
+            iconMoon.classList.remove("hidden");
             body.setAttribute('data-theme', 'light');
         }
     }
