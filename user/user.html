@@ -1,9 +1,189 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>CyberPhone Shop - Khách Hàng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .custom-ellipsis {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      #cartModalOverlay {
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+    </style>
   </head>
-  <body></body>
+  <body class="bg-gray-100 text-gray-800 font-sans pb-12">
+    <header class="bg-slate-900 text-white py-4 sticky top-0 z-50 shadow-md">
+      <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <a
+          href="#"
+          class="text-2xl font-black tracking-wider uppercase text-white"
+        >
+          Cyber<span class="text-blue-500">Phone</span>
+        </a>
+        <button
+          id="openCartBtn"
+          class="bg-slate-800 hover:bg-blue-600 border border-slate-700 hover:border-blue-500 text-white py-2 px-5 rounded-full flex items-center gap-2 font-semibold transition-all"
+        >
+          <i class="fas fa-shopping-cart"></i>
+          <span class="hidden sm:inline">Giỏ hàng</span>
+          <span
+            id="globalCartCount"
+            class="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full"
+            >0</span
+          >
+        </button>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 my-8">
+      <section
+        class="bg-white p-4 rounded-xl shadow-sm flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-8"
+      >
+        <div class="flex items-center gap-3">
+          <label
+            for="brandFilter"
+            class="font-bold text-gray-600 whitespace-nowrap"
+            >Hãng sản xuất:</label
+          >
+          <select
+            id="brandFilter"
+            class="bg-white border border-gray-300 rounded-lg px-4 py-2 font-semibold text-sm outline-none focus:border-blue-500 cursor-pointer transition-all"
+          >
+            <option value="all">Tất cả thương hiệu</option>
+            <option value="iphone">iPhone</option>
+            <option value="samsung">Samsung</option>
+          </select>
+        </div>
+        <div class="text-xs text-gray-400 font-medium">
+          <span
+            class="inline-block w-2 h-2 rounded-full bg-green-500 mr-1 animate-pulse"
+          ></span>
+          Luồng dữ liệu: MockAPI Online
+        </div>
+      </section>
+
+      <section
+        id="productAreaGrid"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        <div class="col-span-full text-center py-12 text-gray-400 italic">
+          Đang tải danh sách sản phẩm từ máy chủ...
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="cartModalOverlay"
+      class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4 invisible opacity-0"
+    >
+      <div
+        id="cartModalWindow"
+        class="bg-white w-full max-w-4xl rounded-xl overflow-hidden max-h-[85vh] flex flex-col shadow-2xl scale-95 transition-transform duration-300"
+      >
+        <div
+          class="p-4 bg-slate-900 text-white flex justify-between items-center"
+        >
+          <h5 class="text-lg font-bold flex items-center gap-2">
+            <i class="fas fa-shopping-bag text-blue-400"></i> Giỏ Hàng Của Bạn
+          </h5>
+          <button
+            id="closeCartX"
+            class="text-gray-400 hover:text-white text-2xl font-semibold outline-none"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="p-4 overflow-y-auto">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[700px]">
+              <thead>
+                <tr
+                  class="bg-gray-100 text-gray-700 font-bold border-b border-gray-200"
+                >
+                  <th class="p-3 text-sm w-16">STT</th>
+                  <th class="p-3 text-sm">Tên sản phẩm</th>
+                  <th class="p-3 text-sm w-24">Hình ảnh</th>
+                  <th class="p-3 text-sm w-28">Đơn giá</th>
+                  <th class="p-3 text-sm w-36">Số lượng</th>
+                  <th class="p-3 text-sm w-32">Thành tiền</th>
+                  <th class="p-3 text-sm w-16 text-center">Xóa</th>
+                </tr>
+              </thead>
+              <tbody
+                id="cartTableContainer"
+                class="divide-y divide-gray-100 text-sm"
+              ></tbody>
+            </table>
+          </div>
+        </div>
+        <div
+          class="p-4 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
+        >
+          <div class="text-gray-800 font-bold text-lg">
+            Tổng chi phí:
+            <span
+              id="txtTotalOrderPrice"
+              class="text-red-500 text-2xl ml-1 font-black"
+              >$0</span
+            >
+          </div>
+          <div class="flex gap-2 w-full sm:w-auto">
+            <button
+              id="closeCartBtn"
+              type="button"
+              class="bg-gray-400 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded-md text-sm transition-all"
+            >
+              Quay lại
+            </button>
+            <button
+              id="btnCheckoutSubmit"
+              type="button"
+              class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-md text-sm transition-all shadow-md shadow-red-500/20"
+            >
+              Thanh Toán
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const overlay = document.getElementById("cartModalOverlay");
+      const win = document.getElementById("cartModalWindow");
+      const openModal = () => {
+        overlay.classList.remove("invisible", "opacity-0");
+        win.classList.remove("scale-95");
+      };
+      const closeModal = () => {
+        overlay.classList.add("invisible", "opacity-0");
+        win.classList.add("scale-95");
+      };
+      document
+        .getElementById("openCartBtn")
+        .addEventListener("click", openModal);
+      document
+        .getElementById("closeCartX")
+        .addEventListener("click", closeModal);
+      document
+        .getElementById("closeCartBtn")
+        .addEventListener("click", closeModal);
+      window.addEventListener("click", (e) => {
+        if (e.target === overlay) closeModal();
+      });
+    </script>
+
+    <script type="module" src="./../user-js/main.js"></script>
+  </body>
 </html>
