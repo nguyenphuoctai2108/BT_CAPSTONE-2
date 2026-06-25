@@ -21,7 +21,6 @@ export class Products {
     this.type = type;
   }
 }
-
 export class CartItem {
   constructor(productObj, quantity = 1) {
     this.product = productObj;
