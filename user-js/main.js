@@ -1,15 +1,11 @@
 import { Products, CartItem } from "./models.js";
 import { fetchProductsAPI } from "./api.js";
-
 let globalProductsList = [];
 let globalCartList = [];
-
 const initApp = async () => {
   loadCartFromStorage();
   renderCart();
-
   const rawData = await fetchProductsAPI();
-
   globalProductsList = rawData.map(
     (item) =>
       new Products(
