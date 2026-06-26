@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./asset/css/output.css">
+    <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+
+<body id="body" data-theme="light" class="bg-(--app-bg) text-(--app-text) transition-colors duration-800">
+    <div class="sm:w-full  lg:ps-50">
+        <header id="header"
+            class="flex flex-wrap sm:justify-end sm:flex-nowrap sm:w-full py-3 bg-(--app-surface) border-b border-(--app-border)">
+            <nav class="max-w-340 w-full mx-auto px-4 flex sm:items-center lg:justify-end justify-between">
+                <div class="lg:hidden my-auto">
+                    <button type="button"
+                        class="flex justify-center items-center gap-x-3 size-8 text-sm text-(--app-muted) hover:bg-(--app-hover) rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-(--app-hover)"
+                        aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-sidebar-content-push"
+                        aria-label="Toggle navigation" data-hs-overlay="#hs-sidebar-content-push">
+                        <svg class="lg:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="18" height="18" x="3" y="3" rx="2" />
+                            <path d="M15 3v18" />
+                            <path d="m8 9 3 3-3 3" />
+                        </svg>
+                        <svg class="hidden sm:block shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="18" height="18" x="3" y="3" rx="2" />
+                            <path d="M15 3v18" />
+                            <path d="m10 15-3-3 3-3" />
+                        </svg>
+                        <span class="sr-only">Navigation Toggle</span>
+                    </button>
+                </div>
+                <div class="flex justify-end flex-row items-center my-auto gap-5 sm:justify-end sm:mt-0 sm:ps-5">
+                    <a class="icon" style="cursor: pointer;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <g fill="none">
+                                <path
+                                    d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                <path fill="currentColor"
+                                    d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m0 12a1 1 0 1 1 0 2a1 1 0 0 1 0-2m0-9.5a3.625 3.625 0 0 1 1.348 6.99a.8.8 0 0 0-.305.201c-.044.05-.051.114-.05.18L13 14a1 1 0 0 1-1.993.117L11 14v-.25c0-1.153.93-1.845 1.604-2.116a1.626 1.626 0 1 0-2.229-1.509a1 1 0 1 1-2 0A3.625 3.625 0 0 1 12 6.5" />
+                            </g>
+                        </svg>
+                    </a>
+                    <button id="iconMode" class="icon" style="cursor: pointer;">
+                        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em"
+                            viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path fill="currentColor"
+                                d="m21.067 11.857l-.642-.388zm-8.924-8.924l-.388-.642zM21.25 12A9.25 9.25 0 0 1 12 21.25v1.5c5.937 0 10.75-4.813 10.75-10.75zM12 21.25A9.25 9.25 0 0 1 2.75 12h-1.5c0 5.937 4.813 10.75 10.75 10.75zM2.75 12A9.25 9.25 0 0 1 12 2.75v-1.5C6.063 1.25 1.25 6.063 1.25 12zm12.75 2.25A5.75 5.75 0 0 1 9.75 8.5h-1.5a7.25 7.25 0 0 0 7.25 7.25zm4.925-2.781A5.75 5.75 0 0 1 15.5 14.25v1.5a7.25 7.25 0 0 0 6.21-3.505zM9.75 8.5a5.75 5.75 0 0 1 2.781-4.925l-.776-1.284A7.25 7.25 0 0 0 8.25 8.5zM12 2.75a.38.38 0 0 1-.268-.118a.3.3 0 0 1-.082-.155c-.004-.031-.002-.121.105-.186l.776 1.284c.503-.304.665-.861.606-1.299c-.062-.455-.42-1.026-1.137-1.026zm9.71 9.495c-.066.107-.156.109-.187.105a.3.3 0 0 1-.155-.082a.38.38 0 0 1-.118-.268h1.5c0-.717-.571-1.075-1.026-1.137c-.438-.059-.995.103-1.299.606z" />
+                        </svg>
+                        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em"
+                            viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M12 1.25a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0V2a.75.75 0 0 1 .75-.75M4.399 4.399a.75.75 0 0 1 1.06 0l.393.392a.75.75 0 0 1-1.06 1.061l-.393-.393a.75.75 0 0 1 0-1.06m15.202 0a.75.75 0 0 1 0 1.06l-.393.393a.75.75 0 0 1-1.06-1.06l.393-.393a.75.75 0 0 1 1.06 0M12 6.75a5.25 5.25 0 1 0 0 10.5a5.25 5.25 0 0 0 0-10.5M5.25 12a6.75 6.75 0 1 1 13.5 0a6.75 6.75 0 0 1-13.5 0m-4 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1-.75-.75m19 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m-2.102 6.148a.75.75 0 0 1 1.06 0l.393.393a.75.75 0 1 1-1.06 1.06l-.393-.393a.75.75 0 0 1 0-1.06m-12.296 0a.75.75 0 0 1 0 1.06l-.393.393a.75.75 0 1 1-1.06-1.06l.392-.393a.75.75 0 0 1 1.061 0M12 20.25a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1a.75.75 0 0 1 .75-.75"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="text-sm ms-6">Name</div>
+                    <div class="line-box"></div>
+                    <div
+                        class="w-12 h-12 bg-cover bg-center rounded-full bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDYW8mEL9768-M7kKAVoAK9Y8MmlOcCzW1---hFjYQZvXNeSAFvtWk3YJWdquKYRIRDnR0zsltAuQo-Qp6sB2wpEe41ysOO6Yg2C049pkNcw&s=10)]">
+                    </div>
+                </div>
+
+            </nav>
+        </header>
+
+        <div class="grid xl:grid-cols-7 grid-cols-1 xl:grid-rows-1 gap-4 p-4 xl:w-full h-fit bg-(--app-bg)"
+            id="body-content">
+            <div
+                class="xl:col-span-4 flex flex-col items-center p-1 sm:p-4 bg-(--app-surface) border border-(--app-border) rounded-xl pb-3 mb-4 xl:h-full h-fit">
+                <div class="border-b border-(--app-border) pb-3 w-full flex flex-row justify-around items-center">
+                    <div class="w-[60%] relative">
+                        <input id="searchInput"
+                            class="w-full rounded-2xl border border-(--app-border) bg-(--app-surface) text-(--app-text) p-0.5 px-3 pb-1.5"
+                            type="text" placeholder="Search">
+
+                        <a id="btnSearch"
+                            class="absolute top-[calc(50%-12px)] right-[2%] border-s-2 border-s-(--app-border) ps-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="currentColor"
+                                    d="M9.539 15.23q-2.398 0-4.065-1.666Q3.808 11.899 3.808 9.5t1.666-4.065T9.539 3.77t4.064 1.666T15.269 9.5q0 1.042-.369 2.017t-.97 1.668l5.909 5.907q.14.14.15.345q.009.203-.15.363q-.16.16-.354.16t-.354-.16l-5.908-5.908q-.75.639-1.725.989t-1.96.35m0-1q1.99 0 3.361-1.37q1.37-1.37 1.37-3.361T12.9 6.14T9.54 4.77q-1.991 0-3.361 1.37T4.808 9.5t1.37 3.36t3.36 1.37" />
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Dropdown -->
+                    <div class="hs-dropdown [--auto-close:inside] relative inline-flex">
+                        <button id="hs-dropdown-default" type="button"
+                            class="hs-dropdown-toggle py-1.5 px-4 pb-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-(--app-bgbtn) border border-gray-200 dark:border-neutral-700 text-gray-800 dark:text-white shadow-2xs hover:bg-gray-100 dark:hover:bg-(--app-hoverbtn) focus:outline-hidden focus:bg-gray-100 dark:focus:bg-(--app-hoverbtn) disabled:opacity-50 disabled:pointer-events-none"
+                            aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                            Sort
+                            <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden bg-white dark:bg-gray-700 border border-transparent shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:inset-s-0 after:w-full before:h-4 before:absolute before:-top-4 before:inset-s-0 before:w-full"
+                            role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
+                            <div class="p-1 space-y-0.5">
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover:bg-(--app-hoverbtn) focus:outline-hidden focus:bg-gray-100 dark:focus:bg-(--app-hoverbtn)"
+                                    id="sortLowHigh" style="cursor: pointer;">
+                                    Low price - high price
+                                </a>
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover:bg-(--app-hoverbtn) focus:outline-hidden focus:bg-gray-100 dark:focus:bg-(--app-hoverbtn)"
+                                    id="sortHighLow" style="cursor: pointer;">
+                                    High price - low price
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Dropdown -->
+                </div>
+                <div class="w-full mt-3">
+                    <!-- Table -->
+                    <div class="w-full">
+                        <div
+                            class="overflow-x-auto overflow-y-auto max-h-150 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-none [&::-webkit-scrollbar-track]:bg-gray-100 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+                            <table id="tableProducts" class="divide-y divide-gray-200 dark:divide-neutral-700 w-full">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-neutral-400 uppercase">
+                                            Name</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-neutral-400 uppercase">
+                                            price</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-neutral-400 uppercase">
+                                            type</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-end text-xs font-medium text-gray-500 dark:text-neutral-400 uppercase">
+                                            Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody" class="divide-y divide-gray-200 dark:divide-neutral-700">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- End Table -->
+                </div>
+            </div>
+            <div
+                class="xl:col-span-3 w-full flex flex-col items-center sm:p-4 bg-(--app-surface) border border-(--app-border) rounded-xl pb-1 mb-4 xl:h-full h-fit">
+                <div class="grid grid-cols-1 flex-col w-full p-1">
+
+                    <div class="w-full space-y-3 py-2 grid grid-cols-6 gap-3">
+                        <div class="col-span-1">
+                            <label class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200"
+                                for="idP">ID</label>
+                            <input type="text" id="idP"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-(--app-bginput) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="" disabled="true">
+                        </div>
+                        <div class="col-span-5">
+                            <label for="name"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Name</label>
+                            <input id="name" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Name product" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-name">Vui lòng nhập tên sản phẩm.</p>
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="border-b-2 border-(--app-border) border-dashed grid sm:grid-cols-5 sm:grid-rows-1 grid-cols-1 grid-rows-2 py-2 gap-3 pb-6">
+                        <div class="sm:col-span-3 w-full space-y-3">
+                            <label for="img"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Img</label>
+                            <input id="img" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Image product" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-img">Vui lòng điền link ảnh.</p>
+                        </div>
+                        <div class="sm:col-span-2 w-full space-y-3">
+                            <label for="type"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Type</label>
+                            <input id="type" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Type" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-type">Vui lòng điền loại sản phẩm.</p>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 grid-cols-1 sm:grid-rows-1 grid-rows-2 gap-3 pt-6 py-2">
+                        <div class="w-full space-y-3">
+                            <label for="price"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Price</label>
+                            <input id="price" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Price" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-price">Vui lòng điền giá.</p>
+                        </div>
+                        <div class="w-full space-y-3">
+                            <label for="screen"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Screen</label>
+                            <input id="screen" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Screen" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-screen">Vui lòng điền screen.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="border-b-2 border-(--app-border) border-dashed pb-6 grid sm:grid-cols-2 grid-cols-1 sm:grid-rows-1 grid-rows-2 gap-3 py-2">
+                        <div class="w-full space-y-3">
+                            <label for="backcamera"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Back
+                                Camera</label>
+                            <input id="backcamera" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Back Camera" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-backcamera">Vui lòng điền camera sau.</p>
+                        </div>
+                        <div class="w-full space-y-3">
+                            <label for="frontcamera"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Front
+                                Camera</label>
+                            <input id="frontcamera" type="text"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Front Camera" required>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-frontcamera">Vui lòng camera trước.</p>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <div class="w-full space-y-3">
+                            <label for="description"
+                                class="block mb-2 text-sm font-medium text-gray-800 dark:text-neutral-200">Decription</label>
+                            <textarea id="description" rows="3"
+                                class="py-2.5 sm:py-3 px-4 rounded-lg block w-full bg-white dark:bg-(--app-bgbtn) border-gray-200 dark:border-neutral-700 sm:text-sm text-gray-800 dark:text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Some thing ..." required></textarea>
+                            <p class="hidden text-sm text-red-600 mt-2" id="error-description">Hãy viết mô tả.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mt-4 flex justify-end px-2">
+                    <button type="button" style="cursor: pointer;" id="btnReset"
+                        class="me-2 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-yellow-200 dark:bg-yellow-500 border border-transparent text-foreground-inverse hover:bg-yellow-300 focus:outline-hidden focus:bg-yellow-300 disabled:opacity-50 disabled:pointer-events-none">
+                        RESET
+                    </button>
+                    <button type="button" style="cursor: pointer;" id="btnSubmit"
+                        class="ms-2 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-blue-500 border border-blue-400 text-primary-foreground hover:bg-blue-600 focus:outline-hidden focus:bg-bg-blue-600 disabled:opacity-50 disabled:pointer-events-none">
+                        SUBMIT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        <div id="hs-sidebar-content-push"
+            class="hs-overlay px-6 py-3 [--body-scroll:true] lg:[--overlay-backdrop:false] [--is-layout-affect:true] [--opened:lg] [--auto-close:lg] hs-overlay-open:translate-x-0 lg:hs-overlay-layout-open:translate-x-0 lg:block lg:-translate-x-full lg:inset-e-auto lg:bottom-0 w-50 -translate-x-full transition-all duration-300 transform h-full hidden fixed top-0 inset-s-0 bottom-0 z-60 bg-(--app-surface) border-e border-(--app-border)"
+            role="dialog" tabindex="-1" aria-label="Sidebar">
+            <div class="relative flex flex-col h-full max-h-full">
+                <header id="header" class="p-4 flex justify-between items-center gap-x-2">
+
+                    <a style="text-shadow: 0px 0px 10px;"
+                        class="flex-none font-semibold mx-auto text-2xl text-(--app-text) focus:outline-hidden focus:opacity-80"
+                        href="./admin.html" aria-label="Brand">ADMIN</a>
+
+                    <div class="lg:hidden -me-2">
+                        <button type="button"
+                            class="flex justify-center items-center gap-x-3 size-6 bg-(--app-surface) border border-(--app-border) text-sm text-(--app-muted) hover:bg-(--app-hover) rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-(--app-hover)"
+                            data-hs-overlay="#hs-sidebar-content-push">
+                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 6 6 18" />
+                                <path d="m6 6 12 12" />
+                            </svg>
+                            <span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                </header>
+                <hr style="color: var(--app-border);" class="mb-4 mt-3">
+                <nav
+                    class="h-full relative overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-none [&::-webkit-scrollbar-track]:bg-(--app-hover) [&::-webkit-scrollbar-thumb]:bg-(--app-border)">
+                    <div class="h-full hs-accordion-group pb-0 px-2 w-full flex flex-col flex-wrap"
+                        data-hs-accordion-always-open>
+                        <ul class="space-y-1 flex flex-col h-full">
+
+                            <li>
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-(--app-text) rounded-lg hover:bg-(--app-hover) focus:outline-hidden focus:bg-(--app-hover)"
+                                    href="./admin.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M0 0h24v24H0z" fill="none" />
+                                        <path fill="currentColor"
+                                            d="M6 19h3v-6h6v6h3v-9l-6-4.5L6 10zm-2 2V9l8-6l8 6v12h-7v-6h-2v6zm8-8.75" />
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-(--app-text) rounded-lg hover:bg-(--app-hover) focus:outline-hidden focus:bg-(--app-hover)"
+                                    href="./products.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M0 0h24v24H0z" fill="none" />
+                                        <path fill="currentColor"
+                                            d="M7 2H3a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1M5 21a2 2 0 1 1 2-2a2 2 0 0 1-2 2m2-9H3V3h4Zm-1 7a1 1 0 1 1-1-1a1 1 0 0 1 1 1m8-17h-4a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1m-2 19a2 2 0 1 1 2-2a2 2 0 0 1-2 2m2-9h-4V3h4Zm-1 7a1 1 0 1 1-1-1a1 1 0 0 1 1 1m8-17h-4a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1m-2 19a2 2 0 1 1 2-2a2 2 0 0 1-2 2m2-9h-4V3h4Zm-1 7a1 1 0 1 1-1-1a1 1 0 0 1 1 1" />
+                                    </svg>
+                                    Products
+                                </a>
+                            </li>
+                            <li>
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-(--app-text) rounded-lg hover:bg-(--app-hover) focus:outline-hidden focus:bg-(--app-hover)"
+                                    href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M0 0h24v24H0z" fill="none" />
+                                        <path fill="currentColor"
+                                            d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2" />
+                                    </svg>
+                                    Web
+                                </a>
+                            </li>
+                            <li class="mt-auto line-hr py-5 pt-10">
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-(--app-text) rounded-lg hover:bg-(--app-hover) focus:outline-hidden focus:bg-(--app-hover)"
+                                    href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M0 0h24v24H0z" fill="none" />
+                                        <path fill="currentColor"
+                                            d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h6q.425 0 .713.288T12 4t-.288.713T11 5H5v14h6q.425 0 .713.288T12 20t-.288.713T11 21zm12.175-8H10q-.425 0-.712-.288T9 12t.288-.712T10 11h7.175L15.3 9.125q-.275-.275-.275-.675t.275-.7t.7-.313t.725.288L20.3 11.3q.3.3.3.7t-.3.7l-3.575 3.575q-.3.3-.712.288t-.713-.313q-.275-.3-.262-.712t.287-.688z" />
+                                    </svg>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="../node_modules/preline/preline.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./asset/js/product.js"></script>
+    <script type="module" src="./asset/js/main.js"></script>
+</body>
+<script>
+    const head = document.getElementById("header");
+    const body = document.getElementById("body-content");
+
+    const heighHeader = head.offsetHeight;
+
+    body.style.minHeight = `calc(100vh - ${heighHeader}px)`
+</script>
+
+</html>

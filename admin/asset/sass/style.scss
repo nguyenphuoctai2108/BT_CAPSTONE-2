@@ -1,0 +1,78 @@
+
+$light-bg: #ffffff;             
+$light-surface: #f8fafc;        
+$light-text: #0f172a;          
+$light-border: #e2e8f0;         
+$light-primary: #2e3e57;
+$light-hover: #dcdcdc;
+$light-focus:  #dcdcdc;
+$light-bg-dropdown: #fffffffc;   
+$light-table-hover: #91919123;     
+$light-bg-input: #79454572;
+
+$dark-bg: #0f172a;              
+$dark-surface: #1e293b;         
+$dark-text: #f1f5f9;  
+$dark-text-sec: #a0a0a0;       
+$dark-border: #334155;          
+$dark-primary: #333549;      
+$dark-hover: #353457;
+$dark-focus: #353457;
+$dark-bgbtn: #374151;
+$dark-hoverbtn: #4B5563;
+$dark-bg-dropdown: #292c3ffe;
+$dark-table-hover: #84848427;
+$dark-bg-input: #45457972;
+
+:root, [data-theme="light"] {
+  --app-bg: #{$light-bg};
+  --app-surface: #{$light-surface};
+  --app-text: #{$light-text};
+  --app-border: #{$light-border};
+  --app-primary: #{$light-primary};
+  --app-hover: #{$light-hover};
+  --app-focus: #{$light-focus};
+  --app-bg-dropdown: #{$light-bg-dropdown};
+  --app-table-hover: #{$light-table-hover};
+  --app-bginput:#{$light-bg-input};
+}
+
+[data-theme="dark"] {
+  --app-bg: #{$dark-bg};
+  --app-surface: #{$dark-surface};
+  --app-text-sec: #{$dark-text-sec};
+  --app-text: #{$dark-text};
+  --app-border: #{$dark-border};
+  --app-primary: #{$dark-primary};
+  --app-hover: #{$dark-hover};
+  --app-focus: #{$dark-focus};
+  --app-bgbtn: #{$dark-bgbtn};
+  --app-hoverbtn: #{$dark-hoverbtn};
+  --app-bg-dropdown: #{$dark-bg-dropdown};
+  --app-table-hover: #{$dark-table-hover};
+  --app-bginput:#{$dark-bg-input};
+}
+
+.line-box {
+  position: relative;
+  height: 40px; 
+  margin: 0px; 
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 1px; 
+    background-color: var(--app-border);
+  }
+}
+
+.line-hr {
+    border-top: 0.5px solid var(--app-border);
+}
+
+.hidden {
+  display: none;
+}
