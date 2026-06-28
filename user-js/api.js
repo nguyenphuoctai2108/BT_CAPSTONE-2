@@ -1,4 +1,4 @@
-const MOCK_API_URL = "https://6a210857b1d0aaf32b4e9fa1.mockapi.io/api/product1";
+const MOCK_API_URL = "https://6a30e3c1a7f8866418d6955b.mockapi.io/api/v1/Products";
 export const fetchProductsAPI = async () => {
   try {
     const response = await fetch(MOCK_API_URL);
